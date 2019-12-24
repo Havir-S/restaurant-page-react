@@ -19,7 +19,7 @@ class BricksLeftMiddleRight extends React.Component {
       brickSpanDirection = 'haa';
     }
 
-    const textSpans = this.props.bricksDirection == 'middle' ?
+    const textSpans = this.props.bricksDirection === 'middle' ?
                       this.props.textSpans :
                       this.props.textSpans.split(" ").map((text,index) => <span key={index} className={brickSpanDirection}>{text}</span> );
 

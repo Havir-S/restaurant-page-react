@@ -1,6 +1,7 @@
 import React from 'react';
 import BricksLeftMiddleRight from './components/bricks.js';
 import BackgroundImg from './components/background-img.js';
+import HiddenHeader from '../header-hidden.js';
 
 class SectionMainPicture extends React.Component {
 
@@ -12,6 +13,7 @@ class SectionMainPicture extends React.Component {
 
     return (
       <section className="section section-main-picture">
+      <HiddenHeader value="MAIN PICTURE" />
         <div className="main-picture-container">
           <BackgroundImg imgSrc={this.props.imgSrc} />
           <BricksLeftMiddleRight bricksDirection='left' textSpans={leftBrickText} />
