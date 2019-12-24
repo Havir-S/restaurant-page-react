@@ -1,0 +1,1289 @@
+@import '_reset.scss';
+@import '_mixins.scss';
+@import '_animations.scss';
+
+body {
+  position: relative;
+  @include mainFont;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  position:absolute;
+  clip: rect(1px 1px 1px 1px); /* IE6 & 7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.wrapper {
+
+  //=============================================================
+  //EVENT BAR SECTION=============================================================
+  //=============================================================
+  .event-bar {
+    width: 100%;
+    background: #000;
+     color: white;
+    .event-bar-div {
+      max-width: 100%;
+      .event-bar-span {
+        display: block;
+        width: max-content;
+        margin: auto;
+        @media (max-width: 500px) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+
+  //brick containers
+  [class~="bricks"] {
+    position: absolute;
+    display: inline-block;
+    width: 820px;
+    height: calc(100% + 290px);
+    background-image: url('../imgs/brickwall6.png');
+    background-position: center;
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    transform: translate(-50%,0);
+    @media (max-width: 1100px) {
+      background-size: 60% 60%;
+    }
+    @media (max-width: 750px) {
+      background-size: 50% 50%;
+    }
+    transition: all .3;
+    .bricks-text-div {
+      position: absolute;
+      @include posAbsoluteLeftTop(50%,50%);
+      min-height: 300px;
+      min-width: 300px;
+      transform: rotate(90deg) translate(-75%,50%);
+      @include textShadow2;
+      @include thirdFont;
+      @media (max-width: 1100px) {
+        transform: rotate(90deg) translate(-58%,70%);
+      }
+      @media (max-width: 750px) {
+        transform: rotate(90deg) translate(-61%,73%);
+      }
+      @media (max-width: 640px) {
+        display: none;
+      }
+      color: #ffffff;
+      text-align: center;
+      .bricks-span {
+        line-height: 1.1em;
+        display: block;
+        font-size: 65px;
+        @media screen and (max-width: 1100px) {
+          font-size: 35px;
+          @media (max-width: 750px) {
+            font-size: 27px;
+          }
+        }
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%) scaleY(-1) rotate(90deg) scaleZ(-1);
+      }
+      .bricks-span-scaled {
+        font-size: 57px;
+        @media screen and (max-width: 1100px) {
+          font-size: 32px;
+        }
+        @media (max-width: 750px) {
+          font-size: 24px;
+        }
+        // transform: scale(-1) rotate(-90deg);
+      }
+    }
+    .brick-text-div-left {
+      font-size: 65px;
+      transform: rotate(90deg) translate(-80%,30%) scaleX(-1);
+      @media (max-width: 1100px) {
+        transform: rotate(90deg) translate(-58%,55%) scaleX(-1);
+      }
+      @media (max-width: 750px) {
+        transform: rotate(90deg) translate(-58%,60%) scaleX(-1);
+      }
+    }
+
+  }
+  .bricks-left {
+    @include posAbsoluteLeftTop(70px,-120px);
+    transform: translate(-40%,0) scaleY(-1) rotate(90deg);
+    @include appearLeft(1.5s);
+    @media screen and (max-width: 750px) {
+      transform: translate(-45%,0) scaleY(-1) rotate(90deg);
+    }
+    @media screen and (max-width: 640px) {
+      transform: translate(-55%,0) scaleY(-1) rotate(90deg);
+    }
+
+    &::after {
+      content: "";
+      @include posAbsoluteLeftTop(0,0);
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(-180deg, transparent 10%, rgba(0,0,0,1));
+      transition: all .25s;
+      opacity: 1;
+    }
+
+  }
+  .bricks-left:hover.bricks-left::after {
+    opacity: 0;
+    background-image: linear-gradient(-180deg, transparent 10%, rgba(0,0,0,1));
+  }
+  .bricks-right {
+    @include posAbsoluteRightTop(70px,-120px);
+    transform: translate(40%,0) scaleX(-1) scaleY(-1) rotate(90deg);
+    @include appearRight(1.5s);
+    @media screen and (max-width: 750px) {
+      transform: translate(45%,0) scaleX(-1) scaleY(-1) rotate(90deg);
+    }
+    @media screen and (max-width: 640px) {
+      transform: translate(55%,0) scaleX(-1) scaleY(-1) rotate(90deg);
+    }
+    &::after {
+      content: "";
+      @include posAbsoluteLeftTop(0,0);
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(-180deg, transparent 10%, rgba(0,0,0,1));
+      transition: all .25s;
+      opacity: 1;
+    }
+  }
+  .bricks-right:hover.bricks-right::after {
+    opacity: 0;
+    background-image: linear-gradient(-180deg, transparent 10%, rgba(0,0,0,1));
+  }
+
+  section {
+    background: #000;
+  }
+    //=============================================================
+    //MAIN PICTURE SECTION=============================================================
+    //=============================================================
+
+  .section-main-picture {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 570px;
+    overflow: hidden;
+    @media screen and (max-width: 1100px) {
+      height: 300px;
+    }
+    // max-height: 350px;
+    .main-picture-container {
+      height: 100%;
+      position: relative;
+      .middle-brick {
+        position: absolute;
+        @include thirdFont;
+        font-size: 50px;
+        color: black;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        width: 400px;
+        height: 400px;
+        background-image: url('../imgs/brickwall6.png');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform:translate(-50%, -50%) rotateZ(90deg);
+        @media screen and (max-width: 1100px) {
+          height: 250px;
+          width: 250px;
+          font-size: 25px;
+        }
+        @include middleBrickAnim(2s,0s);
+        .middle-brick-text {
+          position: absolute;
+          @include fullMiddle;
+          transform: translate(-50%,-50%) rotate(-90deg);
+        }
+      }
+      .main-picture-img-container {
+        height: 100%;
+        overflow: hidden;
+        .main-picture-img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+          background-image: linear-gradient(90deg, black, transparent);
+          @include photoShow(1s);
+        }
+        .main-picture-effects {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1)), linear-gradient(0deg, rgba(161,161,255,0.5) 3%, transparent 20%, rgba(255,161,161,0.5));
+          @include posAbsoluteLeftTop(0,0);
+          @include opacityAnim(1s);
+        }
+      }
+    }
+
+  }
+
+  //=============================================================
+  //NAV BAR SECTION=============================================================
+  //=============================================================
+  .section-navbar {
+    border: 1px solid transparent;
+    height: 250px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    @media (max-width: 850px) {
+      height: 150px;
+    }
+    // background: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1)),
+    //  linear-gradient(to bottom, rgba(161,161,255,0.5) 5%, transparent 50%, rgba(0,0,0,1)), url('../imgs/fancy-cushion.png');
+     &::before {
+       content: "";
+       display: block;
+       position: absolute;
+       top:0;
+       left:0;
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0), rgba(0,0,0,1)),
+        linear-gradient(to bottom, rgba(161,161,255,0.5) 5%, transparent 50%, rgba(0,0,0,1)), url('../imgs/fancy-cushion.png');
+        @include opacityIn(2s);
+     }
+    .navbar-middle {
+      position: relative;
+      margin-top: 62.5px;
+      height: 50%;
+      border: 3px solid gold;
+      background: linear-gradient(to right, rgba(255,0,0,0.5), white 50%, rgba(0,0,255,0.5)), url('../imgs/swirl_pattern.png');
+      background-blend-mode: multiply;
+      @include fullFromLeft(2s);
+      @media (max-width: 850px) {
+        margin-top: 37.5px;
+      }
+      .navbar-middle-effect {
+        width: 100%;
+        height: 100%;
+        @include posAbsoluteRightTop(0,0);
+        background: rgba(0,0,0,0.5);
+      }
+      .navbar-menu {
+        width: 400px;
+        height: 100%;
+        position: relative;
+        z-index: 5;
+        @media (max-width: 620px) {
+          left: 50%;
+        }
+        left: calc(50% + 90px);
+        @include fixAbsolute(-50%, 0);
+        .navbar-ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height:100%;
+          position: relative;
+          .navbar-li {
+            @include secondFont;
+            font-size: 30px;
+            display: inline-block;
+            position: relative;
+            margin: 0 15px;
+            background: url('../imgs/swirl_pattern.png');
+            line-height: 114.5px;
+            border: 3px double gold;
+            height: 100%;
+            min-width: 120px;
+            text-align: center;
+            transform: skewX(-25deg);
+            overflow: hidden;
+            transition: all 0.3s;
+            @media (max-width: 850px) {
+              min-width: 70px;
+              transform: skewX(-15deg);
+              line-height: 67.5px;
+            }
+            @include shadowsAround(1px,1px,1px,1px, rgba(0,0,0,0.1));
+            cursor: pointer;
+            &:hover {
+              transform: skewX(-25deg) scale(1.2);
+              @include shadowsAround(5px,3px,2px,6px, rgba(0,0,0,.2));
+            }
+            &:hover .navbar-li-background-fix {
+              transform: scale(1.3) translate(30px, -20px) skewX(25deg) rotate(180deg);
+            }
+            &::before {
+              // display: inline-block;
+              // content: " ";
+              // @include posAbsoluteRightTop(0,0);
+              // width: calc(100% + 60px);
+              // height: 130%;
+              // background: rgba(100,100,100,0.4);
+              // background: url('../imgs/swirl_pattern.png');
+              // transform: translate(30px, -20px) skewX(25deg) rotate(0);
+              // transition: all .6s;
+            }
+            .navbar-li-background-fix {
+              @include posAbsoluteRightTop(0,0);
+              width: calc(100% + 60px);
+              height: 130%;
+              background: rgba(100,100,100,0.4);
+              background: url('../imgs/swirl_pattern.png');
+              transform: translate(30px, -20px) skewX(25deg) rotate(0);
+              transition: all .6s;
+              @media (max-width: 850px) {
+                transform: translate(30px, -20px) skewX(15deg) rotate(0);
+              }
+            }
+            .navbar-a {
+              display: inline-block;
+              color: inherit;
+              text-decoration: none;
+              line-height: 100%;
+              transform: skewX(25deg);
+              @media (max-width: 850px) {
+                transform: skewX(15deg);
+              }
+            }
+          }
+        }
+      }
+    }
+    .navbar-logo {
+      border: 4px solid gold;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      transform: skewX(-25deg);
+      overflow: hidden;
+      @media (max-width: 850px) {
+        transform: skewX(-15deg) translate(75px, 0);
+      }
+      @media (max-width: 620px) {
+        transform: skewX(-15deg) translate(-200px, 0);
+      }
+      @include fullFromLeft2(2s);
+      @include shadowsAround(2px,2px,11px,5px,rgba(0,0,0,.4));
+      .navbar-logo-background-fix {
+        @include posAbsoluteLeftTop(0,0,);
+        width: calc(100% + 150px);
+        height: 100%;
+        transform: translateX(-70px) skewX(25deg);
+        background:  url('../imgs/swirl_pattern.png');
+        @media (max-width: 850px) {
+          transform: translateX(-70px) skewX(15deg);
+        }
+      }
+      .navbar-span {
+        display: inline-block;
+        @include secondFont;
+        font-size: 48px;
+        @include posAbsoluteRightTop(50%,50%);
+        transform: translate(50%,-50%) skewX(25deg);
+        @media (max-width: 850px) {
+          transform: translate(50%, -50%) skewX(15deg);
+        }
+      }
+    }
+  }
+  .section-main-content {
+    position: relative;
+    height: 1783px;
+    width: 100%;
+    border-top: 1px solid transparent;
+    background: black;
+    background-image: url('../imgs/wall5.png'), repeating-linear-gradient(to right, rgba(0,0,200,0.1) 0%, rgba(0,0,0,0.6) 3%, rgba(0,0,200,0.1) 6%), url('../imgs/fancy-cushion.png');
+    background-repeat:no-repeat, repeat, repeat;
+    background-position:bottom,top, top;
+    // background-size: contain,auto,contain;
+    overflow: hidden;
+    @media (max-width: 1300px) {
+      height:1700px;
+    }
+    @media (max-width: 850px) {
+      height:1500px;
+    }
+    filter: drop-shadow( 10px -4px 6px rgba(0,0,0,0.3)) opacity(1);
+    &::before {
+      content: "";
+      display: block;
+      @include posAbsoluteRightTop(0,0);
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(0,0,0,1), transparent, transparent, transparent 20%);
+      z-index: 4;
+      transition: all .1s linear;
+    }
+    .main-content-container {
+      width: 100%;
+      max-width: 100%;
+      height: 770px;
+      margin: 0 auto 0;
+      z-index: 5;
+      position: relative;
+      background-image: url('../imgs/wall4.png');
+      // overflow: hidden;
+      // background-repeat: repeat, no-repeat;
+      // background-position:center, top;
+      background-size: 100% 100%;
+      background-repeat: repeat-x;
+      background-position: center;
+      filter: drop-shadow(3px 3px 5px black);
+      // &::after {
+      //   content: "";
+      //   display: block;
+      //   height: 150px;
+      //   width: 100%;
+      //   border: 2px solid yellow;
+      // }
+      @media (max-width: 600px) {
+        height: fit-content;
+        background-repeat: repeat-y;
+      }
+
+    }
+    .pillar {
+      width: 500px;
+      height: 100%;
+      position: absolute;
+      top:0;
+      background-image: url('../imgs/pillartest332.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      z-index: 5;
+
+    }
+    .pillar-left {
+      left: 6%;
+      transform: translate(-50%, 0);
+      transition: all 1s ease-out;
+      @include pillarAnimLeft;
+      @media screen and (max-width: 1625px) {
+        transform: translate(-70%, 0);
+      }
+      @media screen and (max-width: 1390px) {
+        transform: translate(-80%, 0);
+      }
+      @media screen and (max-width: 1270px) {
+        transform: translate(-90%, 0);
+      }
+      @media screen and (max-width: 1160px) {
+        transform: translate(-100%, 0);
+      }
+      @media screen and (max-width: 1050px) {
+        transform: translate(-105%, 0);
+      }
+      @media screen and (max-width: 990px) {
+        transform: translate(-113%, 0);
+      }
+    }
+    .pillar-right {
+      right: 6%;
+      transform: translate(50%, 0);
+      transition: all 1s ease-out;
+      @include pillarAnimRight;
+      @media screen and (max-width: 1625px) {
+        transform: translate(70%, 0);
+      }
+      @media screen and (max-width: 1390px) {
+        transform: translate(80%, 0);
+      }
+      @media screen and (max-width: 1270px) {
+        transform: translate(90%, 0);
+      }
+      @media screen and (max-width: 1160px) {
+        transform: translate(100%, 0);
+      }
+      @media screen and (max-width: 1050px) {
+        transform: translate(105%, 0);
+      }
+      @media screen and (max-width: 990px) {
+        transform: translate(113%, 0);
+      }
+    }
+    .main-content {
+      width: 100%;
+      max-width: 1000px;
+      height: 100%;
+      margin: auto;
+      position: relative;
+      background: rgba(155,155,155,0.2);
+      .menu-container,.map-container,.about-container {
+        @include opacityIn(.4s);
+      }
+      .menu-container {
+        width: 100%;
+        .menu-options {
+          max-width: 900px;
+          margin: auto;
+          display: flex;
+          justify-content: space-around;
+          @media (max-width: 850px) {
+            justify-content: space-around;
+          }
+          .menu-option {
+            border: 2px solid rgba(0,0,0,.5);
+            color: white;
+            text-transform: uppercase;
+            margin: 15px 15px 0;
+            min-width: 120px;
+            background: rgba(0,0,0,.4);
+            background: linear-gradient(to left, transparent, #3333ff22, transparent, #ff333322, transparent), url('../imgs/cartographer.png');
+            background-blend-mode: color-dodge;
+            text-align: center;
+            padding: 15px 0;
+            border-radius: 25% 25% 0 0;
+            cursor: pointer;
+            position: relative;
+            filter: drop-shadow(0px -2px 1px black);
+            @media (max-width: 850px) {
+              margin: 5px 5px 0;
+            }
+            @media (max-width: 690px) {
+              min-width: 90px;
+              font-size: 14px;
+            }
+            @media (max-width: 500px) {
+              min-width: 0;
+              font-size: 13px;
+              margin: 2px 2px 0;
+            }
+            @media (max-width: 450px) {
+              font-size: 11px;
+            }
+            &::before {
+              content: "";
+              @include posAbsoluteLeftTop(0,0);
+              @include fixAbsolute(-5px,-4px);
+              width: 100%;
+              height: 100%;
+              border-radius: 25% 25% 0 0;
+              background: linear-gradient(to top, transparent 40%, rgba(200,200,200,.3));
+              border: 5px solid gold;
+              border-bottom: 0 solid gold;
+              transition: all .2s;
+              opacity: 0;
+              @media (max-width: 850px) {
+                border: 3px solid gold;
+                border-bottom: 0 solid gold;
+              }
+
+            }
+          }
+          .menu-option:hover.menu-option::before {
+            opacity: 1;
+          }
+          // .menu-option:first-of-type {
+          //   margin: 0 15px 0 0;
+          // }
+        }
+        .menu-main {
+          box-shadow: 0 0 5px 3px black;
+          z-index: 15;
+          margin: auto;
+          max-width: 900px;
+          display: grid;
+          min-height: 600px;
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: 100px;
+          grid-gap: 15px 25px;
+          background: linear-gradient(to left, transparent, #3333ff22, transparent, #ff333322, transparent), url('../imgs/cartographer.png');
+          background-blend-mode: color-dodge;
+          padding: 10px;
+          @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+          }
+          .dish-row:hover.dish-row::before {
+            background: linear-gradient(to top, transparent 70%, rgba(200,200,200,.4));
+            opacity: 1;
+          }
+          .dish-row {
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid gold;
+            border-bottom: 5px solid gold;
+            border-radius: 20% 10% 0 20%;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            color: white;
+            z-index: 13;
+
+            &::before {
+              content: "";
+              @include posAbsoluteLeftTop(0,0);
+              @include fixAbsolute(0,0);
+              width: 100%;
+              height: 100%;
+              transition: all .2s;
+              opacity: 0;
+              background: linear-gradient(to top, transparent 70%, rgba(200,200,200,.4));
+            }
+            &:hover {
+              border-bottom: 5px solid lighten(gold, 20%);
+              border-left: 4px solid lighten(gold, 20%);
+            }
+            * {
+              text-align: center;
+            }
+
+            .dish-img-container {
+              flex: 0 0 100px;
+              .dish-img {
+                width: 100px;
+                height: 100px;
+                border-radius: 0 20% 20% 0;
+              }
+            }
+            .dish-description {
+              padding: 11px;
+              flex: 2 1 400px;
+              min-height: 80px;
+              .dish-name {
+                font-size: 23px;
+                margin-bottom: 6px;
+                text-align: left;
+                text-transform: capitalize;
+                @media (max-width: 900px) {
+                  font-size: 18px;
+                  margin-bottom: 2px;
+                }
+                @media (max-width: 715px) {
+                  font-size: 15px;
+                }
+                @media (max-width: 685px) {
+                  font-size: 13px;
+                }
+                @media (max-width: 600px) {
+                  margin-bottom: 5px;
+                  font-size: 20px;
+                }
+                @media (max-width: 420px) {
+                  font-size: 15px;
+                }
+              }
+              .dish-ingredients {
+                font-size: 13.5px;
+                text-align: left;
+                @media (max-width: 800px) {
+                  font-size: 12px;
+                }
+                @media (max-width: 655px) {
+                  font-size: 8px;
+                }
+                @media (max-width: 600px) {
+                  font-size: 15px;
+                }
+                @media (max-width: 420px) {
+                  font-size: 10px;
+                }
+              }
+            }
+            .dish-order {
+              flex: 0 0 60px;
+              text-align: right;
+              .dish-price {
+                font-size: 25px;
+                color: white;
+                margin-bottom: 11px;
+                @media (max-width: 900px) {
+                  font-size: 19px;
+                }
+                @media (max-width: 655px) {
+                  font-size: 14px;
+                }
+                @media (max-width: 600px) {
+                  font-size: 23px;
+                }
+                .eur {
+                  color: orange;
+                  font-size: 15px;
+                  margin-left: 3px;
+                  vertical-align: text-bottom;
+                  @media (max-width: 900px) {
+                    font-size: 16px;
+                  }
+                  @media (max-width: 655px) {
+                    font-size: 9px;
+                  }
+                  @media (max-width: 600px) {
+                    font-size: 19px;
+                  }
+                }
+
+              }
+              .dish-button {
+                font-size: 20px;
+                background: orange;
+                outline: 0;
+                border-radius: 15%;
+                padding: 3px;
+                border: 2px solid darken(orange,10%);
+                cursor: pointer;
+                z-index: 50;
+                &:active {
+                  color:white;
+
+                }
+                &:hover {
+                  outline: 0;
+                  background: darken(orange,10%);
+                  border: 2px solid darken(orange,20%);
+                  border-top: 2px solid darken(orange,10%);
+                  border-bottom: 2px solid darken(orange,30%);
+                }
+              }
+            }
+          }
+        }
+
+      }
+      .map-container {
+        display: none;
+        .map-iframe {
+          width: 80%;
+          height: 400px;
+          display: block;
+          margin: 15px auto 0;
+          @media (max-width: 650px) {
+            height: 200px;
+          }
+        }
+        .map-button {
+          position: absolute;
+          max-width: 200px;
+          font-size: 16px;
+          margin: 5px 0;
+          padding: 6px 5px;
+          left: calc(100% - 10% - 200px);
+        }
+        .map-text-div {
+          .map-text-main {
+            border-radius: 3px;
+            width: 80%;
+            box-shadow: 0 0 5px 3px black;
+            margin: auto;
+            border: 2px solid gold;
+            background: linear-gradient(to left, transparent, #3333ff22, transparent, #ff333322, transparent), url('../imgs/cartographer.png');
+            background-blend-mode: color-dodge;
+            display: flex;
+            justify-content: space-around;
+            * {
+              color: white;
+              margin: 5px 0;
+              padding: 0 8px;
+              @media (max-width: 550px) {
+                font-size: 13px;
+              }
+            }
+            .warning {
+              font-size: 12px;
+              color: #f99;
+              @media (max-width: 550px) {
+                font-size: 9px;
+              }
+            }
+            h3 {
+              font-size: 32px;
+              text-transform:uppercase;
+              @media (max-width: 550px) {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+      .about-container {
+        display: none;
+        filter: drop-shadow(0px -2px 1px black);
+        .about-text-div, .photos-container {
+          border: 2px solid gold;
+          border-radius: 3px;
+          box-shadow: 0 0 5px 1px black;
+          width: 82%;
+          margin:0 auto;
+          background: linear-gradient(to left, transparent, #3333ff22, transparent, #ff333322, transparent), url('../imgs/cartographer.png');
+          background-blend-mode: color-dodge;
+
+          h3 {
+            font-size: 32px;
+            text-transform: uppercase;
+            @media (max-width: 650px) {
+              font-size: 18px;
+            }
+          }
+          * {
+            color: white;
+            margin: 10px 0;
+            padding: 0 11px;
+            line-height: 1.6rem;
+          }
+
+        }
+        .about-about {
+          h3 {
+            @media (max-width: 550px) {
+              font-size: 16px;
+            }
+          }
+          p {
+            @media (max-width: 550px) {
+              font-size: 13px;
+            }
+          }
+        }
+        .photos-container {
+          padding: 0;
+          height: 340px;
+          margin: 15px auto 0;
+          .photos-main-photo-container {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            float: left;
+            display: inline-block;
+            width: 78%;
+            .photos-main-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              padding: 0;
+              margin: 0;
+              border: 3px solid rgba(150,150,150,.2);
+              cursor: zoom-in;
+              transition: all 1s;
+            }
+          }
+          .photos-small-photos-container {
+            float: right;
+            width: 20%;
+            background: rgba(0,0,0,.4);
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .mini-photo {
+              padding: 5px;
+              width: 100%;
+              height: 100px;
+              margin: 0;
+              cursor: pointer;
+              object-fit: cover;
+            }
+          }
+        }
+        .about-contact {
+          margin: 20px auto 0 ;
+          display: flex;
+          justify-content: space-between;
+          @media (max-width: 550px) {
+            display: block;
+          }
+          .contact-div {
+            * {
+              @media (max-width: 650px) {
+                font-size: 13px;
+              }
+            }
+
+          }
+          .media-div {
+            @media (max-width: 650px) {
+              text-align: center;
+            }
+            .media-icons {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-around;
+              .media-svg {
+                flex: 0 0 30px;
+                margin: 0 2px;
+                padding: 3px;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border: 2px solid rgba(130,130,130,.7);
+                background: rgba(130,130,130,.7);
+                border-radius: 50%;
+                &:hover {
+                  border: 2px solid black;
+                  background: rgba(255,255,255,.7);
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+  }
+  .section-main-content:hover.section-main-content::before {
+    opacity: .7;
+  }
+
+  .calendar-tab {
+    border: 1px solid transparent;
+    height: 900px;
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      @include posAbsoluteRightTop(0,0);
+      width: 100%;
+      height: 480px;
+      background-image: url('../imgs/wall5_down4.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+    }
+    .calendar-container {
+      max-width: 1000px;
+      width: 100%;
+      margin: auto;
+      height: 100%;
+      position: relative;
+      transition: all .2s;
+      @media (max-width: 1250px) {
+        max-width: 800px;
+      }
+      @media (max-width: 1050px) {
+        max-width: 600px;
+      }
+      @media (max-width: 850px) {
+        max-width: 400px;
+      }
+      // @include fadeIn(2s);
+      .calendar-trivia {
+        margin-top: 10px;
+        text-align: center;
+        min-height: 70px;
+        border: 5px groove brown;
+        background-color: #00000099;
+        width: 60%;
+        margin: auto;
+        border-radius: 0 0 25% 25%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .trivia {
+          display: inline-block;
+          padding: 15px;
+          .trivia-text {
+            color: white;
+            display: inline-block;
+          }
+          .trivia-box {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background: transparent;
+            vertical-align: middle;
+          }
+          .trivia-box-today {
+            border: 2px solid red;
+            background: rgba(133,233,150,.3);
+          }
+          .trivia-box-reserved {
+            border: 2px solid orange;
+            background: lighten(transparentize(orange, 0.6%),20%);
+          }
+          .trivia-box-normal {
+            border: 2px solid lightblue;
+          }
+          .trivia-box-event {
+            border: 2px dashed blue;
+            background: lighten(transparentize(blue, 0.6%),20%);
+          }
+          .trivia-box-closed {
+            border: 2px double brown;
+            background: lighten(transparentize(brown, 0.6%),20%);
+          }
+        }
+      }
+      .calendar-main {
+        position: relative;
+        border: 5px solid brown;
+        border-style: groove;
+        border-radius: 10px 10px;
+        box-shadow: 2px 2px 5px 10px rgba(0,0,0,.2), -2px -2px 5px 10px rgba(0,0,0,.2), -2px 2px 5px 10px rgba(0,0,0,.2),
+                    2px -2px 5px 10px rgba(0,0,0,.2), 0 -5px 5px 3px rgba(100,100,100,.3) inset;
+        background: linear-gradient(to left, transparent, #3333ff22, transparent, #ff333322, transparent), url('../imgs/cartographer.png');
+        background-blend-mode: color-dodge;
+
+        .calendar-day-description {
+          height: 50px;
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          grid-auto-rows: 50px;
+          background: rgba(50,50,146,.2);
+          padding: 0 50px 50px;
+          border-bottom: 3px solid rgba(0,0,0,.4);
+          @media (max-width: 850px) {
+            padding: 0 5px;
+          }
+          .calendar-day-element {
+            @media (max-width: 1050px) {
+              font-size: 14px;
+            }
+            @media (max-width: 850px) {
+              font-size: 11px;
+            }
+
+            color: white;
+            font-size: 16px;
+            line-height: 50px;
+            text-align: center;
+            position: relative;
+          }
+        }
+
+
+        .calendar-button {
+          position: absolute;
+          top: 0;
+          // transform: translate(0, -50%);
+          min-width: 100px;
+          height: 70%;
+          top: 50%;
+          transform: translate(0, -50%);
+          z-index: 5;
+          background: linear-gradient(to top, rgba(50,50,50,0.1), rgba(100,100,100,.5)), url('../imgs/cartographer.png') ;
+          color: white;
+          border: 3px solid rgba(0,0,0,.2);
+          border-top: 5px;
+          border-bottom: 1px;
+          transition: all .7s;
+          border: 5px groove brown;
+          cursor: pointer;
+          @media (max-width: 850px) {
+            width: 50px;
+            min-width: 10px;
+            max-width: 50px;
+            font-size: 10px;
+          }
+
+          &:active {
+            color: red;
+            outline: 0;
+            border:3px double rgba(190,190,190,.4);
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+        .calendar-button-left {
+          left: -100px;
+          border-radius: 25% 0 0 25%;
+          @media (max-width: 850px) {
+            left: -50px;
+          }
+          &::before {
+            content: "";
+            border-radius: 25% 0 0 25%;
+            @include posAbsoluteLeftTop(0,0);
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: linear-gradient(to left, rgba(100,100,100,.1), rgba(180,180,180,.3));
+            @include calendarButton(.2s);
+            transition: all .2s;
+            border-left: 3px solid rgba(190,190,190,.4);
+          }
+        }
+        .calendar-button-left:hover.calendar-button-left::before {
+          display: block;
+        }
+        .calendar-button-right {
+          right: calc(0% - 100px);
+          border-radius: 0 25% 25% 0;
+          @media (max-width: 850px) {
+            right: calc(0% - 50px);
+          }
+          &::before {
+            content: "";
+            border-radius: 0 25% 25% 0;
+            @include posAbsoluteLeftTop(0,0);
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: linear-gradient(to right, rgba(100,100,100,.1), rgba(180,180,180,.3));
+            @include calendarButton(.2s);
+            transition: all .2s;
+            border-right: 3px solid rgba(190,190,190,.4);
+          }
+        }
+        .calendar-button-right:hover.calendar-button-right::before {
+          display: block;
+        }
+      }
+
+      .calendar-information {
+        padding: 6px;
+        margin-top: 117px;
+        color: white;
+        text-align: center;
+        .month-name {
+          font-size: 60px;
+        }
+      }
+      .calendar-inside {
+        padding: 16px 50px 50px;
+        max-height: 600px;
+        background: rgba(100,100,100,.3);
+        @media (max-width: 850px) {
+          padding: 15px 5px;
+        }
+
+        .calendar-grid {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          place-items: center center;
+          grid-auto-rows: 1fr;
+          grid-gap: 10px;
+          margin: auto;
+          @include fadeIn(.3s);
+          @media (max-width: 850px) {
+            grid-gap: 5px;
+          }
+          .calendar-element {
+            border: 3px solid lightblue;
+            min-width: 80px;
+            min-height: 80px;
+            line-height: 80px;
+            font-size: 33px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            z-index: 25;
+            transition: all .2s;
+            @media (max-width: 1050px) {
+              min-width: 60px;
+              min-height: 60px;
+              line-height: 60px;
+            }
+            @media (max-width: 850px) {
+              min-width: 40px;
+              min-height: 40px;
+              line-height: 40px;
+              font-size: 15px;
+            }
+            background: rgba(50,50,50,.8);
+            .calendar-element-number {
+              color: white;
+              @include textShadow;
+
+            }
+
+            // &::after {
+            //   content: "intel";
+            //   font-size: 11px;
+            //   position: absolute;
+            //   width: 50px;
+            //   height: 120px;
+            //   border: 3px solid green;
+            //   top: 50%;
+            //   left: 100%;
+            //   background: rgba(200,200,200,.2);
+            //   @include fixAbsolute(0,-50%);
+            // }
+            &:hover {
+              @include shadowsAround(3px, 3px, 4px, 1px, rgba(255,255,255,0.2));
+            }
+          }
+          .calendar-element-full {
+            border: 3px solid orange;
+            background: lighten(transparentize(orange, 0.6%),20%);
+          }
+          .calendar-element-event {
+            border: 3px dashed blue;
+            background: lighten(transparentize(blue, 0.6%),20%);
+          }
+          .calendar-element-closed {
+            border: 3px double brown;
+            background: lighten(transparentize(brown, 0.6%),20%);
+
+          }
+          .today {
+            border: 3px solid red;
+
+            background: rgba(133,233,150,.3);
+            @include shadowsAround(2px,2px,3px,2px, rgba(100,100,100,.3));
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-scene {
+  @include posAbsoluteLeftTop(0,0);
+  width: 100%;
+  height: 100%;
+  background: black;
+  background: #44444477;
+  overflow: hidden;
+  @supports (backdrop-filter: blur(5px)) {
+    backdrop-filter: blur(5px);
+  }
+  z-index: 999;
+
+  .modal-tab {
+    @include posAbsoluteLeftTop(50%,50%);
+    @include fixAbsolute(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background: grey;
+    background: rgba(100,100,100,.3);
+    max-width: 1200px;
+    max-height: 600px;
+    border: 2px groove rgba(0,0,0,.3);
+    border-radius: 5px;
+    @include photoShow(.3s);
+    .close-button {
+      @include posAbsoluteRightTop(0,-50px);
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      background-image: url('../imgs/error.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      transition: all .2s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .modal-img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+
+    }
+
+  }
+}

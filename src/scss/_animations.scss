@@ -1,0 +1,212 @@
+
+//BRICKS ANIMATIONS
+
+@mixin appearLeft($time) {
+  animation: appearLeftAnim $time forwards ease-in-out;
+}
+
+@keyframes appearLeftAnim {
+  0% {
+    left: -100%;
+    filter: drop-shadow(0 0 0 rgba(0,0,0,0)) blur(15px) opacity(0);
+  }
+  30% {
+    left: -40%;
+  }
+  100% {
+    left: 0;
+    filter: saturate(70%) drop-shadow( 10px -4px 6px rgba(0,0,0,0.4)) blur(0) opacity(1);
+  }
+}
+
+@mixin appearRight($time) {
+  animation: appearRightAnim $time forwards ease-in-out;
+}
+
+@keyframes appearRightAnim {
+  0% {
+    right: -100%;
+    filter: drop-shadow(0 0 0 rgba(0,0,0,0)) blur(15px) opacity(0);
+  }
+  30% {
+    right: -40%;
+  }
+  100% {
+    right: 0;
+    filter: grayscale(.1) saturate(70%) drop-shadow( 10px -4px 6px rgba(0,0,0,0.4)) blur(0) opacity(1);
+  }
+}
+
+@mixin opacityAnim($time) {
+  animation: opacityAnimation $time forwards;
+}
+
+@keyframes opacityAnimation {
+  0% {
+    filter: opacity(0);
+  }
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@mixin photoShow($time) {
+  animation: photoShowAnimation $time forwards;
+}
+
+@keyframes photoShowAnimation {
+  0% {
+    filter: brightness(0) blur(6px);
+  }
+  100% {
+    filter: brightness(1) blur(0);
+  }
+}
+
+//NAVBAR ANIMATIONS
+
+@mixin fullFromLeft($time) {
+  animation: fullFromLeftAnim $time forwards;
+}
+
+@keyframes fullFromLeftAnim {
+  0% {
+    left:-100%;
+  }
+  100% {
+    left:0;
+  }
+}
+
+@mixin fullFromLeft2($time) {
+  animation: fullFromLeftAnim2 $time forwards;
+}
+
+@keyframes fullFromLeftAnim2 {
+  0% {
+    left:-100%;
+    width: 0;
+  }
+  50% {
+    width: 50px;
+  }
+  100% {
+    left: calc(50% - 350px);
+
+    width: 200px;
+  }
+}
+
+// @mixin test($time) {
+//   animation: testAnim $time forwards;
+// }
+//
+// @keyframes testAnim {
+//   0% {
+//     background: linear-gradient(to left, red, rgba(0,0,0,1));
+//     transform: scale(1);
+//   }
+//   100% {
+//     background: linear-gradient(to left, red, rgba(0,255,0,1));
+//     transform: scale(2);
+//   }
+// }
+
+@mixin middleBrickAnim($time,$delay) {
+  animation: middleBrickAnimation $time cubic-bezier(.28,-0.24,.42,1.47) forwards;
+  animation-delay: $delay;
+}
+
+@keyframes middleBrickAnimation {
+  0% {
+    top: -100%;
+    transform: translate(-30%, -30%) rotateZ(70deg) skewX(0);
+    filter: drop-shadow(0 0 0 rgba(0,0,0,0)) blur(15px) opacity(0);
+  }
+  100% {
+    top: 50%;
+    transform: translate(-50%, -50%) rotateZ(90deg) skewX(0);
+    filter: drop-shadow( 10px -4px 6px rgba(0,0,0,1)) blur(0) opacity(1);
+  }
+}
+
+@mixin opacityIn($time) {
+  animation: opacityInAnim $time forwards;
+}
+
+@keyframes opacityInAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin fadeIn($time) {
+  animation: fadeInAnimation $time forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@mixin pillarAnimLeft {
+  animation: pillarAnimLeft 1.3s forwards;
+}
+
+@keyframes pillarAnimLeft {
+  0% {
+    left: -100%;
+    filter: brightness(.3) drop-shadow(5px -4px 36px rgba(0,0,0,0));
+  }
+  60% {
+    filter: brightness(.6);
+  }
+  100% {
+    left: 6%;
+    filter: brightness(1) drop-shadow(5px -4px 36px rgba(0,0,0,1));
+  }
+}
+
+@mixin pillarAnimRight {
+  animation: pillarAnimRight 1.3s forwards;
+}
+
+@keyframes pillarAnimRight {
+  0% {
+    right: -100%;
+    filter: brightness(.3) drop-shadow(5px -4px 36px rgba(0,0,0,0));
+  }
+  60% {
+    filter: brightness(.6);
+  }
+  100% {
+    right: 6%;
+    filter: brightness(1) drop-shadow(5px -4px 36px rgba(0,0,0,1));
+  }
+}
+
+@mixin calendarButton($time) {
+  animation: calendarButtonAnim $time forwards;
+}
+
+@keyframes calendarButtonAnim {
+  0% {
+    opacity: 0;
+    filter: blur(2px);
+    display: none;
+  }
+  1% {
+    display: block;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
