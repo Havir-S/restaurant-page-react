@@ -17,7 +17,7 @@ class SectionNavBar extends React.Component {
       <HiddenHeader value='NAVBAR SECTION' />
         <div className="navbar-middle">
           <div className="navbar-menu">
-            <MenuUl navbarLinks={navbarLinks} />
+            <MenuUl navbarLinks={navbarLinks} handleTabChange={this.props.handleTabChange} />
           </div>
           <div className="navbar-middle-effect">
           </div>
