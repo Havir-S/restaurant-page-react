@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.21974fd0.chunk.css",
+    "main.js": "/static/js/main.c9c22f81.chunk.js",
+    "main.js.map": "/static/js/main.c9c22f81.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8c06af95.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8c06af95.js.map",
+    "static/js/2.bf01ab36.chunk.js": "/static/js/2.bf01ab36.chunk.js",
+    "static/js/2.bf01ab36.chunk.js.map": "/static/js/2.bf01ab36.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3b583ca5da3f9a2650c2ae472bde190d.js": "/precache-manifest.3b583ca5da3f9a2650c2ae472bde190d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.21974fd0.chunk.css.map": "/static/css/main.21974fd0.chunk.css.map",
+    "static/js/2.bf01ab36.chunk.js.LICENSE": "/static/js/2.bf01ab36.chunk.js.LICENSE",
+    "static/media/mainStyle.scss": "/static/media/wall5_down4.1d606d5f.png",
+    "static/media/facebook.svg": "/static/media/facebook.d96467f3.svg",
+    "static/media/pinterest.svg": "/static/media/pinterest.42950d5e.svg",
+    "static/media/pizza1.jpg": "/static/media/pizza1.44da77b9.jpg",
+    "static/media/restaurant1.jpg": "/static/media/restaurant1.5ddbbd74.jpg",
+    "static/media/spaghetti.jpg": "/static/media/spaghetti.47dfbbee.jpg",
+    "static/media/twitter.svg": "/static/media/twitter.7e145c9e.svg",
+    "static/media/youtube.svg": "/static/media/youtube.8968a4b8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c06af95.js",
+    "static/js/2.bf01ab36.chunk.js",
+    "static/css/main.21974fd0.chunk.css",
+    "static/js/main.c9c22f81.chunk.js"
+  ]
+}
